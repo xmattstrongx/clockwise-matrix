@@ -3,6 +3,7 @@ package clockwise
 import (
 	"fmt"
 	"strconv"
+	"strings"
 )
 
 func GetClockwiseMatrixString(values [][]int) string {
@@ -15,7 +16,7 @@ func GetClockwiseMatrixString(values [][]int) string {
 			values, result = printBottomUp(values, result)
 		}
 	}
-	return result
+	return strings.TrimSuffix(result, ", ")
 }
 
 func printTopDown(values [][]int, result string) (v [][]int, r string) {
