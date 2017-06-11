@@ -1,5 +1,25 @@
 # Clockwise Matrix walk
 
+## Usage
+
+`go get github.com/xmattstrongx/clockwise-matrix/clockwise`
+
+```go
+values := [][]int{}
+
+	row1 := []int{1, 2, 3, 4}
+	row2 := []int{10, 11, 12, 5}
+	row3 := []int{9, 8, 7, 6}
+
+	values = append(values, row1)
+	values = append(values, row2)
+	values = append(values, row3)
+
+	result := clockwise.GetClockwiseMatrixString(values)
+```
+
+The resulting string will be "1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12"
+
 ## Assumptions
 * For this project I am assuming the matrix will be consisting of int slices of all equal lengths. 
 
