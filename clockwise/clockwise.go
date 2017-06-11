@@ -11,15 +11,15 @@ func GetClockwiseMatrixString(values [][]int) string {
 	length := len(values)
 	for i := 0; i < length; i++ {
 		if i == 0 || i%2 == 0 {
-			values, result = printTopDown(values, result)
+			values, result = getTopDown(values, result)
 		} else {
-			values, result = printBottomUp(values, result)
+			values, result = getBottomUp(values, result)
 		}
 	}
 	return strings.TrimSuffix(result, ", ")
 }
 
-func printTopDown(values [][]int, result string) (v [][]int, r string) {
+func getTopDown(values [][]int, result string) (v [][]int, r string) {
 	for _, val := range values[0] {
 		result += fmt.Sprintf("%s, ", strconv.Itoa(val))
 	}
@@ -35,7 +35,7 @@ func printTopDown(values [][]int, result string) (v [][]int, r string) {
 	return values, result
 }
 
-func printBottomUp(values [][]int, result string) (v [][]int, r string) {
+func getBottomUp(values [][]int, result string) (v [][]int, r string) {
 	lastRowIndex := len(values) - 1
 	for i := len(values[lastRowIndex]); i > 0; i-- {
 		result += fmt.Sprintf("%s, ", strconv.Itoa(values[lastRowIndex][i-1]))
